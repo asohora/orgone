@@ -500,7 +500,7 @@ footer {
 	--color1: hsl(300, 50%, 15%);
 	--color2: hsl(46, 40%, 90%);
 	--color3: hsl(46, 50%, 50%);
-	--color4: hsl(46, 50%, 40%);
+	--color4: hsl(46, 50%, 30%);
 
 }
 
@@ -518,7 +518,7 @@ header {
 
 nav ul li {
 	box-shadow: 0 1px 3px 1px black;
-	background-image: linear-gradient(to left, var(--color1) 0%, var(--color4) 100%);
+	background-image: linear-gradient(to bottom right, var(--color1) 50%, var(--color4) 100%);
 	color: var(--color2);
 }
 
@@ -589,7 +589,7 @@ nav ul li::before {
 	background-color:black;
 	z-index:1;
 	transform: scaleX(0);
-	transition: transform 150ms ease-in-out, 150ms transform-origin 150ms ;
+	transition: transform 200ms ease-in-out, 200ms transform-origin 200ms ;
 	transform-origin:left;
 }
 
@@ -605,7 +605,7 @@ nav ul li::after {
 	background-color:var(--color2);
 	transform:scaleX(0);
 	transform-origin:right;
-	transition: transform 150ms ease-in-out, 150ms transform-origin 150ms ease-in-out;
+	transition: transform 200ms ease-in-out, 200ms transform-origin 200ms ease-in-out;
 	border-radius: 50% 0;
 }
 

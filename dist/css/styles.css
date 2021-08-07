@@ -1,0 +1,709 @@
+/*---------------
+-----------------
+					MENU
+					
+		1. Basic setup
+		2. Body
+			2.1. Header
+			2.2. Nav
+			2.3. Main
+				2.3.1. Who
+					2.3.1.1. About
+					2.3.1.2. Mission
+					2.3.1.3. Vision
+				2.3.2. Products
+				2.3.3. Contact
+				2.3.4. Privacy
+			2.4. Footer
+		3. Color
+		4. Effects
+		5. Media queries
+-----------------
+---------------*/
+
+/* Provisional */
+
+.img {
+	overflow:hidden;
+}
+
+
+
+main .img {
+	width: 100%;
+	height: 300px;
+}
+
+* {
+	outline: 0px solid black;
+}
+
+/* ---------
+ 1. Basic setup
+	----------*/
+
+*, *::after, *::before {
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+}
+
+
+:root {
+	font-family: tahoma, arial;
+	font-size: 18px;
+	text-justify:inter-character;
+	hyphens:auto;
+	scroll-behavior: smooth;
+	scroll-padding-top: 5rem;
+	line-height: 1.7rem;
+}
+
+h2 {font-size: 2rem;}
+h3 {font-size: 1.7rem;}
+h4 {font-size: 1.3rem;}
+
+
+
+p, dd {
+	text-align:justify;
+	max-width: 60ch;
+	padding: 1.5rem;
+}
+
+dt {
+	font-weight: bolder;
+}
+
+ol li {
+	margin-left: 3rem;
+	padding-right: 3rem;
+	line-height:1.2rem;
+	text-align:justify;
+	max-width: 50ch;
+	
+}
+
+:is(h1, h2, h3, h4, ul li) {
+	line-height: .9em;
+	text-align: center;
+	hyphens:none;
+	
+}
+
+:is(h1,h2,h3,h4, dl dt) {
+	font-weight: bolder;
+	padding: 1rem;
+	text-align:center;
+	
+}
+
+a {
+	text-decoration: none;
+	color:inherit;
+	text-transform:uppercase;
+}
+
+
+
+/*---------
+		2.	Body
+---------*/
+
+body {
+	display:grid;
+	place-items:center;
+	grid-template-areas:
+		"nav nav nav"
+		"header header header"
+		". main ."
+		"footer footer footer";
+		grid-template-columns: 1fr 18fr 1fr;
+}
+
+header {grid-area:header;}
+nav {grid-area:nav;}
+main {grid-area:main;}
+footer {grid-area:footer;}
+
+
+/* 2.1. Header */
+
+header {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+	height: calc(100vh - 4rem);
+	width:100%;
+}
+
+header .img {
+	max-width:100vw;
+	max-height: 70%;
+	display:grid;
+	place-items:center;
+}
+
+header .img img {
+	height: 100%;
+	width:100%;
+	object-fit: contain;
+}
+
+
+/* 2.2. Nav */
+nav {
+	position:sticky;
+	top:0;
+	width:100%;
+	z-index: 5;
+}
+
+nav ul {
+	list-style:none;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	height: 4.5rem;
+}
+
+nav ul li {
+	display:inline;
+	height:100%;
+	width:100%;
+	display:grid;
+	place-items:center;
+	letter-spacing: -1px;
+	padding: 1rem 3vw;
+}
+
+nav input {
+	display:none;
+}
+
+nav label {
+	position:absolute;
+}
+
+/* 2.3. Main */
+
+main {
+	display:grid;
+	place-items:center;
+	grid-row-gap: 5rem;
+	padding: 2rem 0;
+}
+
+main > article > * {
+	width: 100%;
+}
+
+main .img {
+	width: 100%;
+	height:100%;
+}
+
+
+/* 2.3.1. Who */
+
+#who {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		"about about"
+		"mission vision"
+		"values values";	
+	place-items:center;
+	grid-gap: 1rem;
+	
+}
+
+#about {grid-area:about;}
+#mission {grid-area:mission;}
+#vision {grid-area:vision;}
+#values {grid-area:values;}
+
+
+
+/* 2.3.1.1. About */
+#about {
+	max-width: 150ch;
+	display:grid;
+	height:100%;
+	width:100%;
+	grid-template:
+		"img heading" 3rem
+		"img txt" auto
+		/ 1fr  minmax(40ch, 1.5fr);
+		place-items:center;
+		grid-row-gap: 1rem;
+}
+
+
+#who .card :is(h2,h3) {grid-area:heading;}
+#who .card .img {grid-area:img;}
+#who .card .txt {grid-area:txt;}
+
+#who .card :is(h2,h3) {
+	margin:auto;
+}
+
+#who .card .img {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+
+#who .card .txt {
+	padding: 1rem;
+	min-width: 25ch;
+	align-self:start;
+	height:100%;
+}
+#about {
+	grid-template-columns: 1fr  minmax(40ch,1fr);
+	padding: 1rem;
+}
+
+
+#about .img {
+	height:100%;
+	width:100%;
+}
+
+#about .img img {
+	height:100%;
+	width:100%;
+	object-fit:cover;
+	object-position:center;
+}
+
+/* 2.3.1.2. Mission */
+#mission,
+#vision {
+	max-width: 150ch;
+	display:grid;
+	height:100%;
+	width:100%;
+	grid-template:
+		"img heading" 3rem
+		"img txt" auto
+		/ 2fr  4fr;
+		place-items:center;
+		grid-row-gap: 1rem;
+}
+
+
+:is(#mission,#vision) .img img {
+	height:100%;
+	width:100%;
+	object-fit:cover;
+	object-position:center;
+}
+
+
+
+/* 2.3.1.3 Vision */
+
+			/* See 2.3.1.1. */
+
+/* 2.3.1.4 Values */
+
+#values dl {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows:auto;
+	grid-gap:1.5rem;
+	
+}
+
+#values dl > * {
+	width: 100%;
+	height:100%;
+	display:grid;
+	place-items:center;
+
+}
+
+#values dl .img {
+height: 20rem;
+}
+
+#values dl .img img {
+height: 20rem;
+}
+
+
+
+/* 2.3.2 Products */
+#products {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: minmax(2rem, .3fr);
+	padding: 1.5rem 0;
+	
+}
+
+#products h2 {
+	grid-column: 1/-1;
+}
+
+#products section {
+	height:100%;
+	display:grid;
+	grid-template-rows: 5rem 30vh auto auto;
+	place-items:center;
+}
+
+#products section .img {
+	height:100%;
+	width: 100%;
+	display:grid;
+	place-items:center;
+	padding: .5rem;
+}
+
+#products section .img img {
+	height:100%;
+	width:100%;
+	object-fit: contain;
+}
+
+#products section a {
+	font-size: .8rem;
+	text-align:center;
+	font-weight:bolder;
+	
+}
+
+#products section p {
+	max-width: 60ch;
+	text-align:center;
+	
+}
+
+
+/* 2.3.3 Contact */
+
+ #contact > * {
+		display:grid;
+		place-items:center;
+	}
+	
+	#contact p {
+				text-align:center;
+
+	}
+	
+	#contact iframe {
+		width: 90%;
+		height: 70vh;
+	}
+	.waLogo {
+		width: 1.5em;
+	}
+	
+	#phoneNumbers {
+		margin-top: 1.5rem;
+		display:grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 3rem auto;
+		grid-row-gap: 4rem;
+		grid-column-gap: 1.5rem;
+		
+	}
+	#phoneNumbers > * {
+		height: 100%;
+		width: 100%;
+		display:grid;
+		grid-template-rows: 5rem auto;
+		place-items:center;
+		
+	}
+		
+	#phoneNumbers h3 {
+		grid-column: 1/-1;
+	}
+
+/* 2.3.4 Privacy */
+
+	#privacy {
+		display:grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1.5rem;
+		padding:.5rem;
+	}
+	
+	
+	#privacy ol li {
+		padding:.5rem 1.5rem;
+	}
+	
+	#privacy section {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    border:2px solid black;
+    outline:2px solid black;
+    outline-offset: -5px;
+    box-shadow: 2px 2px 5px 2px var(--color1);
+				padding: 1rem 0;
+				margin:0;
+
+  }
+  
+  #privacy section h3 {
+    max-width: 40ch;
+				height: 3em;
+  }
+  
+  #privacy section:first-child {
+				grid-column: 1/-1;
+    display:flex;
+    flex-direction:column;
+				align-items:center;
+				justify-content:center;
+				max-width: 80ch;
+				place-self:center;
+  }
+	
+	
+	
+/* 2.4. Footer */
+
+footer {
+	width:100%;
+	display:grid;
+	place-items:center;
+}
+
+/* ---------
+		3.	Color
+----------*/
+
+:root {
+	--color1: hsl(300, 50%, 15%);
+	--color2: hsl(46, 40%, 90%);
+	--color3: hsl(46, 50%, 50%);
+}
+
+body {
+	background-color: var(--color3);
+}
+
+header {
+	background-color:white;
+}
+
+:is(nav, main, #mission, #vision, #phoneNumbers){
+	box-shadow: 2px 2px 3px black;
+}
+
+nav ul li {
+	box-shadow: 0 1px 3px 1px black;
+	background-image: linear-gradient(to left, var(--color1) 0%, var(--color3) 100%);
+	color: var(--color2);
+}
+
+
+
+footer, :is(#mission, #vision),:is(#mission, #vision) h3 {
+	background-color: var(--color1);
+	color: var(--color2);
+}
+
+main {
+		background-color: var(--color2);
+}
+
+h1, h2, h3, h4 {
+	color: var(--color1);
+	text-shadow: 0 0 1px black;
+}
+
+p, dd, ol li {
+	opacity: .8;
+}
+
+#about .img {
+		border: 2px solid var(--color1);
+	outline: 2px solid var(--color1);
+	outline-offset: 1px;
+}
+
+
+
+#contact iframe {
+	border: 2px solid var(--color1);
+	outline: 2px solid var(--color1);
+	outline-offset: 1px;
+}
+
+#phoneNumbers, #phoneNumbers :is(h3, h4) {
+		background-color: var(--color1);
+		color: var(--color2);
+}
+
+#phoneNumbers > div {
+	border-top: 1px solid var(--color2);
+}
+
+#products {
+	background-color:white;
+}
+
+#products a {
+	color: var(--color1);
+	
+}
+
+/* ---------
+		4.	Effects
+----------*/
+nav ul li {position:relative; overflow:hidden;}
+nav ul li a {z-index:2;}
+nav ul li::before {
+	content:"";
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color:black;
+	z-index:1;
+	transform: scaleX(0);
+	transition: transform 150ms ease-in-out, 150ms transform-origin 150ms ;
+	transform-origin:left;
+}
+
+nav ul li::after {
+	content:"";
+	z-index:3;
+	bottom:1rem;
+	left:25%;
+	text-align:center;
+	width:50%;
+	height:4px;
+	position: absolute;
+	background-color:var(--color2);
+	transform:scaleX(0);
+	transform-origin:right;
+	transition: transform 150ms ease-in-out, 150ms transform-origin 150ms ease-in-out;
+	border-radius: 50% 0;
+}
+
+nav ul li:hover::before {
+	transform:scaleX(1);
+	transform-origin:right;
+}
+
+nav ul li:hover::after {
+	transform:scaleX(1);
+	transform-origin:left;
+}
+
+#who .card .img img {
+	transition: transform 250ms ease-in-out;
+}
+
+#who .card .img:hover img {
+	transform: scale(1.2);
+}
+
+#products a {
+	position:relative;
+	transition:color, underline, 150ms;
+}
+#products a:hover {
+	color: var(--color3);
+	text-decoration:underline;
+}
+
+
+
+
+/* ---------------
+		5.	Media queries
+----------------*/
+
+@media (max-width: 800px) {
+	#who .card {
+	grid-template:
+		"heading heading" 3rem
+		"img img" auto
+		"txt txt" auto
+		/ 1fr 1fr;
+	}
+	
+	#who .card .img {
+		height: 15rem;
+		align-self:start;
+	}
+
+}
+
+@media (max-width: 600px) {
+	body {
+		display:block;
+	}
+	
+	#who {
+		display:block;
+	}
+	#values dl {
+		display:block;
+	}
+	
+	#values dl dt {
+		text-align:center;
+		margin-top: 2rem;
+	}
+	
+	#products {
+		display:block;
+	}
+	
+	#products section:nth-of-type(1) {
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid black;
+	}
+	
+	#phoneNumbers {
+		display:block;
+	}
+	
+	#phoneNumbers h4 {
+		margin-top: 2rem;
+	}
+	
+	#privacy {
+		display:block;
+	}
+	
+	#privacy h3 {
+	margin-top: 2rem;
+	}
+	
+	nav {
+		font-size: .8rem;
+		padding:0;
+	}
+}
+
+@media (max-width: 450px) {
+	nav {font-size: .6rem;
+	}
+	
+	nav ul li {
+			padding: 0;
+		}
+		
+	#about h2 {
+	font-size: 1.8rem;
+	padding:0;
+	margin:0;
+	}
+
+}

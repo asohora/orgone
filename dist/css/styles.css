@@ -340,7 +340,7 @@ height: 20rem;
 #products {
 	display:grid;
 	grid-template-columns: 1fr 1fr;
-	grid-gap: 1.5rem;
+	grid-column-gap: minmax(2rem, .3fr);
 	padding: 1.5rem 0;
 	
 }
@@ -354,8 +354,6 @@ height: 20rem;
 	display:grid;
 	grid-template-rows: 5rem 30vh auto auto;
 	place-items:center;
-	padding-bottom:1.5rem;
-	border-bottom: 1px solid black;
 }
 
 #products section .img {
@@ -635,6 +633,11 @@ nav ul li:hover::after {
 	
 	#products {
 		display:block;
+	}
+	
+	#products section:nth-of-type(1) {
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid black;
 	}
 	
 	#phoneNumbers {

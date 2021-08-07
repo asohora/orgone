@@ -354,6 +354,8 @@ height: 20rem;
 	display:grid;
 	grid-template-rows: 5rem 30vh auto auto;
 	place-items:center;
+	padding-bottom:1.5rem;
+	border-bottom: 1px solid black;
 }
 
 #products section .img {
